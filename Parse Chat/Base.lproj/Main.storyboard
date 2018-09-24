@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Parse_Chat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Parse_Chat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,7 +72,7 @@
         <!--Chat-->
         <scene sceneID="9RA-Kt-l7C">
             <objects>
-                <viewController id="rGj-9G-ilF" customClass="ViewController" customModule="Parse_Chat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatViewController" id="rGj-9G-ilF" customClass="ChatViewController" customModule="Parse_Chat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G5l-rp-LrM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,22 +99,22 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.1460435437" green="0.88141596499999997" blue="0.061942543920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="165" id="eqn-zo-BEg" customClass="ChatCell" customModule="Parse_Chat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="165"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" rowHeight="115" id="eqn-zo-BEg" customClass="ChatCell" customModule="Parse_Chat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eqn-zo-BEg" id="kGE-DH-MDZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="164.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="114.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBb-wi-yTS">
-                                                    <rect key="frame" x="8" y="36.333333333333336" width="359" height="120.33333333333331"/>
+                                                    <rect key="frame" x="8" y="36.666666666666657" width="359" height="70"/>
                                                     <color key="backgroundColor" red="0.88693007991803685" green="1" blue="0.53967301161818393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0OS-r2-gIG">
-                                                    <rect key="frame" x="8" y="7.9999999999999982" width="78.666666666666671" height="20.333333333333329"/>
+                                                    <rect key="frame" x="8" y="8.0000000000000018" width="79" height="20.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -140,17 +140,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="SOe-BT-641"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Chat" id="5e8-GW-BwF">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="neZ-Ja-eZB">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Chat" id="Ny4-fn-Zuh">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" style="done" id="NdO-2e-7Zy">
+                            <color key="tintColor" red="1" green="0.45952094960000001" blue="0.55712559090000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="logoutButton:" destination="rGj-9G-ilF" id="Y8F-Qu-hE0"/>
-                                <segue destination="BYZ-38-t0r" kind="presentation" id="52c-Rb-K0H"/>
+                                <action selector="logoutButton:" destination="rGj-9G-ilF" id="Smp-85-okt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="chatMessageField" destination="Zuu-ON-aRg" id="Bo2-Eu-mcu"/>
                         <outlet property="tableView" destination="f7s-pz-sbE" id="tbo-Vh-axK"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="logoutSegue" id="scK-jR-kHH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ypP-d0-m0F" userLabel="First Responder" sceneMemberID="firstResponder"/>

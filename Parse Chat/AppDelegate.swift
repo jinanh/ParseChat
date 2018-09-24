@@ -19,8 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         Parse.initialize(with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) in
-            configuration.applicationId = "CodePath-Parse"
-            configuration.server = "http://45.79.67.127:1337/parse"
+            configuration.applicationId = "ParseChat"
+            configuration.clientKey = "pqndjskhfbnxmzkqjeufhjaklherhjkafbnzmbvhkeq"  // set to nil assuming you have not set clientKey
+            configuration.server = "https://obscure-garden-54789.herokuapp.com/parse"
         }))
         
         if let currentUser = PFUser.current() {

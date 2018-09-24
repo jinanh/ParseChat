@@ -1,24 +1,24 @@
 //
-//  ViewController.swift
+//  ChatViewController.swift
 //  Parse Chat
 //
-//  Created by Jinan Huang on 9/21/18.
+//  Created by Jinan Huang on 9/23/18.
 //  Copyright © 2018 Jinan Huang. All rights reserved.
 //
 
 import UIKit
 import Parse
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     var window = UIWindow()
     var messages: [PFObject] = []
     
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var chatMessageField: UITextField!
     
     @IBAction func sendButton(_ sender: Any) {
+        
         let chatMessage = PFObject(className: "Message")
         chatMessage["text"] = chatMessageField.text ?? ""
         
@@ -33,7 +33,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
     }
-    
     
     @IBAction func logoutButton(_ sender: Any) {
         // Logout the current user
@@ -51,13 +50,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
         })
     }
-    
-    
-   
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,13 +61,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.estimatedRowHeight = 50
         queryMessage()
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.onTimer), userInfo: nil, repeats: true)
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
@@ -123,6 +117,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @objc func onTimer(){
         queryMessage()
     }
-
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
-
